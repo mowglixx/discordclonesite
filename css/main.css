@@ -1,0 +1,200 @@
+:root{
+    --shade-bg-solid: rgba(66,66,66,1);
+    --shade-bg: rgba(0,0,0,0.2);
+    --shade-bg-hover: rgba(0,0,0,0.3);
+    --shade-bg-active: rgba(0,0,0,0.25);
+
+    --accent-bg: rgb(141, 113, 243);
+}
+
+@keyframes navIconAnimation {
+    from {border-radius: 50%;}
+    to {border-radius: 25%;}
+}  
+@keyframes navIconAnimationLeave {
+    from {
+        border-radius: 25%;}
+        to {
+        border-radius: 50%;}
+}  
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    background: none;
+    border: none;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: white;
+}
+
+body,
+div,
+img,
+main,
+nav{
+    display: flex;
+}
+
+body{
+    
+    flex-direction: column;
+    background-color: var(--shade-bg-solid);
+    min-height: 100vh;
+}
+
+main{
+    flex-direction: column;
+    min-height: 100vh;
+    min-width: 20em;
+    filter: saturation(0);
+    background-color: var(--shade-bg);
+}
+
+
+nav{
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1em;
+    background-color: var(--shade-bg);
+    min-height: 100%;
+}
+
+nav>div{
+    flex-direction: column;
+}
+nav>* a:before{
+    border-radius: 50%;
+}
+nav>* a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    font-size: 1.5em;
+    padding: 0.5em;
+    margin-bottom: 1em;
+    background-color: var(--accent-bg);
+    animation-name: navIconAnimationLeave;
+    animation-duration: 0.3s;
+    /* animation-iteration-count: 1; */
+    /* animation-play-state: running; */
+    animation-fill-mode: forwards;
+}
+
+nav>* a:hover{
+    animation-name: navIconAnimation;
+    animation-duration: 0.3s;
+    /* animation-iteration-count: 1; */
+    animation-direction: alternate;
+    animation-play-state: running;
+    animation-fill-mode: both;
+    background-color: rgb(111, 71, 253);
+}
+
+.second{
+    flex-direction: column;
+    background-color: var(--shade-bg-hover);
+    min-height: 100%;
+    min-width: 16em;
+    resize: horizontal;
+    overflow-x: auto;
+}
+.third{
+    
+    background-color: var(--shade-bg);
+    flex-direction: column;
+    max-height: 100%;
+}
+.forth{
+    background-color: var(--shade-bg);
+    flex-direction: column;
+    max-height: 100%;
+    min-width: 16em;
+}
+nav:hover, .second:hover, .third:hover, .forth:hover{
+    box-shadow: var(--shade-bg) 0em 0em 1em;
+}
+
+.thread{
+    flex-direction: column-reverse;
+    max-height: calc(100vh - 7em);
+    overflow-x: visible;
+    overflow-y: scroll;
+}
+
+.topBar{
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: var(--accent-bg);
+    padding: 0.6em;
+}
+
+.strand{
+    padding: 0.6em;
+    flex-direction: column;
+    background-color: var(--shade-bg);
+    border-top: 0.001em solid var(--shade-bg);
+    color: #ccc;
+}
+
+
+.strandHeader{
+    align-items: center;
+    /* padding: 0.5em; */
+}
+.strandHeader *{
+    padding: 0.5em;
+}
+
+.strandHeaderImage{
+    /* placeholder */
+    margin: 0;
+}
+
+.strandHeaderImage img{
+    display: flex;
+    max-width: 4em;
+    max-height: 4em;
+    border-radius: 50%;
+}
+
+.strandHeader a {
+    font-size: 1.3em;
+}
+
+.conversationInput{
+    background-color: var(--shade-bg);
+    padding: 0.6em;
+}
+
+.conversationInputField{
+    display: flex;
+    width: 100%;
+    padding: 1em;
+    border-radius: 0.3em;
+    outline: 0.001em solid black;
+    transition: 0.3s outline;
+}
+.conversationInputField:focus, .conversationInputField:hover{
+    outline: 0.001em solid white;
+}
+
+
+.pill{
+    padding: 1em;
+    background-color: var(--shade-bg);
+    transition: 0.333s background-color;
+}
+
+.pill:hover, .strand:hover{
+    background-color: var(--shade-bg-hover);
+}
+
+.pill:active{
+    filter: invert();
+}
